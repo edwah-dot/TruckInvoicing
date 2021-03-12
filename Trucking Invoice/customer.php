@@ -7,7 +7,7 @@ session_start();
 if(!isActive()) {header("Location: login.php");}
 
 // check if customer already exists in database
-function doesExist($biz, $addr)
+function doesntExist($biz, $addr)
 {
     global $db;
     $sql = "SELECT * From Customer WHERE (BusinessName = '$biz' AND AddressID = '$addr')";
@@ -26,7 +26,7 @@ if(isset($_POST["BusinessName"]) && isset($_POST["ContactName"]) && isset($_POST
     $phone = sanitize($_POST["PhoneNumber"]);
     $address = sanitize($_POST["AddressID"]);
     
-    if(doesExist($bizname, $address))
+    if(doesntExist($bizname, $address))
     {
         $sql = "INSERT INTO Customer (BusinessName, ContactName, PhoneNumber, AddressID)   
         VALUES ('$bizname', '$contact', '$phone', '$address')";
