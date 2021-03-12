@@ -24,6 +24,8 @@ INNER JOIN Truck
  ON Truck.TruckID = Invoice.TruckID
 INNER JOIN Payload
  ON Payload.LoadID = Invoice.LoadID;
+
+This allows for: SELECT * FROM CompleteInvoice;
  -->
 
 <?php
